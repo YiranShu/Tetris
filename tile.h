@@ -24,11 +24,40 @@ protected:
 	vec3 color;
 
 public:
-	TTile() : status(0), color(vec3(0.0f, 1.0f, 0.0f)) {
-		grids.emplace_back(4, 19);
-		grids.emplace_back(3, 20);
-		grids.emplace_back(4, 20);
-		grids.emplace_back(5, 20);
+	TTile() : color(vec3(0.0f, 1.0f, 0.0f)) {
+		status = rand() % 4;
+		if (status == 0) {
+			int left = rand() % 8;
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(left, 20);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(2 + left, 20);
+		}
+
+		else if (status == 1) {
+			int left = rand() % 9;
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(left, 18);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 20);
+		}
+
+		else if (status == 2) {
+			int left = rand() % 8;
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(2 + left, 19);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(left, 19);
+		}
+
+		else {
+			int left = rand() % 9;
+			grids.emplace_back(left, 19);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(1 + left, 18);
+		}
+
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
@@ -52,11 +81,24 @@ protected:
 	vec3 color;
 
 public:
-	ITile() : status(0), color(vec3(0.0f, 0.0f, 1.0f)) {
-		grids.emplace_back(3, 19);
-		grids.emplace_back(4, 19);
-		grids.emplace_back(5, 19);
-		grids.emplace_back(6, 19);
+	ITile() : color(vec3(0.0f, 0.0f, 1.0f)) {
+		status = rand() % 2;
+		if (status == 0) {
+			int left = rand() % 7;
+			grids.emplace_back(left, 19);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(2 + left, 19);
+			grids.emplace_back(3 + left, 19);
+		}
+
+		else {
+			int left = rand() % 10;
+			grids.emplace_back(left, 17);
+			grids.emplace_back(left, 18);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 20);
+		}
+
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
@@ -80,11 +122,40 @@ protected:
 	vec3 color;
 
 public:
-	JTile() : status(0), color(vec3(1.0f, 0.0f, 0.5f)) {
-		grids.emplace_back(5, 19);
-		grids.emplace_back(5, 20);
-		grids.emplace_back(4, 20);
-		grids.emplace_back(3, 20);
+	JTile() : color(vec3(1.0f, 0.0f, 0.5f)) {
+		status = rand() % 4;
+		if (status == 0) {
+			int left = rand() % 8;
+			grids.emplace_back(2 + left, 19);
+			grids.emplace_back(2 + left, 20);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(left, 20);
+		}
+
+		else if (status == 1) {
+			int left = rand() % 9;
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(left, 20);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 18);
+		}
+
+		else if (status == 2) {
+			int left = rand() % 8;
+			grids.emplace_back(left, 20);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(2 + left, 19);
+		}
+
+		else {
+			int left = rand() % 9;
+			grids.emplace_back(left, 18);
+			grids.emplace_back(1 + left, 18);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(1 + left, 20);
+		}
+
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
@@ -109,10 +180,11 @@ protected:
 
 public:
 	OTile() : status(0), color(vec3(1.0f, 0.0f, 0.0f)) {
-		grids.emplace_back(4, 19);
-		grids.emplace_back(5, 19);
-		grids.emplace_back(4, 20);
-		grids.emplace_back(5, 20);
+		int left = rand() % 9;
+		grids.emplace_back(left, 19);
+		grids.emplace_back(1 + left, 19);
+		grids.emplace_back(left, 20);
+		grids.emplace_back(1 + left, 20);
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
@@ -136,11 +208,40 @@ protected:
 	vec3 color;
 
 public:
-	LTile() : status(0), color(vec3(0.7f, 0.5f, 1.0f)) {
-		grids.emplace_back(3, 19);
-		grids.emplace_back(3, 20);
-		grids.emplace_back(4, 20);
-		grids.emplace_back(5, 20);
+	LTile() : color(vec3(0.7f, 0.5f, 1.0f)) {
+		status = rand() % 4;
+		if (status == 0) {
+			int left = rand() % 8;
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 20);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(2 + left, 20);
+		}
+
+		else if (status == 1) {
+			int left = rand() % 9;
+			grids.emplace_back(1 + left, 18);
+			grids.emplace_back(left, 18);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 20);
+		}
+
+		else if (status == 2) {
+			int left = rand() % 8;
+			grids.emplace_back(2 + left, 20);
+			grids.emplace_back(2 + left, 19);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(left, 19);
+		}
+
+		else {
+			int left = rand() % 9;
+			grids.emplace_back(left, 20);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(1 + left, 18);
+		}
+
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
@@ -164,11 +265,24 @@ protected:
 	vec3 color;
 
 public:
-	STile() : status(0), color(vec3(1.0f, 0.5f, 0.0f)) {
-		grids.emplace_back(3, 19);
-		grids.emplace_back(4, 19);
-		grids.emplace_back(4, 20);
-		grids.emplace_back(5, 20);
+	STile() : color(vec3(1.0f, 0.5f, 0.0f)) {
+		status = rand() % 2;
+		if (status == 0) {
+			int left = rand() % 8;
+			grids.emplace_back(left, 19);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(2 + left, 20);
+		}
+
+		else {
+			int left = rand() % 9;
+			grids.emplace_back(1 + left, 18);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 20);
+		}
+
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
@@ -192,11 +306,24 @@ protected:
 	vec3 color;
 
 public:
-	ZTile() : status(0), color(vec3(1.0f, 1.0f, 0.0f)) {
-		grids.emplace_back(5, 19);
-		grids.emplace_back(4, 19);
-		grids.emplace_back(4, 20);
-		grids.emplace_back(3, 20);
+	ZTile() : color(vec3(1.0f, 1.0f, 0.0f)) {
+		status = rand() % 2;
+		if (status == 0) {
+			int left = rand() % 8;
+			grids.emplace_back(2 + left, 19);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(left, 20);
+		}
+
+		else {
+			int left = rand() % 9;
+			grids.emplace_back(1 + left, 20);
+			grids.emplace_back(1 + left, 19);
+			grids.emplace_back(left, 19);
+			grids.emplace_back(left, 18);
+		}
+
 		for (int i = 0; i < 4; i++) {
 			grids[i].setColor(color);
 		}
